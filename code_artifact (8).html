@@ -91,9 +91,9 @@
             background-color: #555;
         }
 
-        /* 공통 레이아웃 */
+        /* 공통 레이아웃 (PC 환경에서 더 넓게 보이도록 max-width 1200px로 확장) */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
             text-align: center;
@@ -214,17 +214,17 @@
         .about-content {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem; /* 여백 확장 */
             margin-top: 2rem;
             text-align: left;
         }
 
         .about-image {
-            flex: 1;
+            flex: 1.2; /* 이미지 영역 비율 약간 증가 */
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 300px;
+            height: 350px; /* 높이 소폭 증가 */
         }
 
         .about-image img {
@@ -247,7 +247,7 @@
             border-left: 5px solid var(--primary-color);
         }
 
-        /* 갤러리 섹션 */
+        /* 3. 갤러리 섹션 */
         #gallery {
             background-color: #f0f4f8;
         }
@@ -309,7 +309,7 @@
         }
 
         .gallery-grid img {
-            flex: 0 0 300px;
+            flex: 0 0 320px; /* 이미지 너비 약간 확장 */
             height: 250px;
             object-fit: cover;
             border-radius: 12px;
@@ -333,14 +333,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3rem;
+            gap: 4rem; /* 간격 확장 */
             margin-top: 3rem;
             flex-wrap: wrap;
         }
 
         .album-cover {
-            width: 250px;
-            height: 250px;
+            width: 280px; /* 앨범 크기 약간 확장 */
+            height: 280px;
             border-radius: 50%;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             overflow: hidden;
@@ -378,7 +378,7 @@
 
         .music-info {
             text-align: left;
-            max-width: 400px;
+            max-width: 450px; /* 너비 약간 확장 */
         }
 
         .music-title {
@@ -532,9 +532,9 @@
             transform: scale(1.05);
         }
 
-        /* 하단에 통합된 표준약관 박스 */
+        /* 하단에 통합된 표준약관 박스 (PC 환경에서 더 넓게 보이도록 max-width 1000px로 확장) */
         .terms-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 4rem auto 0; /* 위쪽 여백으로 도움말 버튼과 분리 */
             width: 100%;
             background-color: #f8f9fa;
@@ -696,12 +696,12 @@
             transform: translateY(0);
         }
 
-        /* 반응형 */
+        /* 반응형 (모바일 환경 유지) */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
             .catchphrase { font-size: 1.2rem; }
             .container { padding: 3rem 1.5rem; }
-            .about-content { flex-direction: column; }
+            .about-content { flex-direction: column; gap: 2rem; }
             .nav-menu { gap: 1rem; }
             .nav-item { font-size: 1rem; padding: 0.5rem; }
             body { margin-top: 60px; }
@@ -711,6 +711,8 @@
             .music-container { gap: 1.5rem; text-align: center; }
             .music-info { text-align: center; }
             .custom-audio-player { justify-content: center; }
+            .album-cover { width: 220px; height: 220px; }
+            .about-image { height: 250px; }
         }
     </style>
 </head>
@@ -995,8 +997,6 @@
             const volIcon = document.getElementById('vol-icon');
             
             const fakeSliderThumb = document.getElementById('fake-slider-thumb');
-            const latDisplay = document.getElementById('lat-display');
-            const volDisplay = document.getElementById('vol-display');
             const volTooltip = document.getElementById('vol-tooltip');
             
             let isPlaying = false;
